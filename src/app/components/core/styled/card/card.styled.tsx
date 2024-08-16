@@ -23,3 +23,7 @@ export const Title = styled.p`
     margin-left: auto;
   }
 `;
+
+export const Content = styled.div`
+  overflow-x: scroll;
+`;

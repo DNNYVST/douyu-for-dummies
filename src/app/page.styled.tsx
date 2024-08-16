@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import Link from "next/link";
 import { smallFont, fontWeightMedium } from "./components/core/styled/styles";

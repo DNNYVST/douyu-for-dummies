@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Container, Title } from "./card.styled";
+import { Container, Title, Content } from "./card.styled";
 
 const Card = ({
   title = "",
@@ -17,7 +17,7 @@ const Card = ({
         {button}
       </Title>
     )}
-    {children}
+    <Content>{children}</Content>
   </Container>
 );
 
