@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, LegacyRef } from "react";
 import { Container, Title, Content } from "./card.styled";
 
 const Card = ({
@@ -6,13 +6,13 @@ const Card = ({
   titleColor = "",
   children,
   button = null,
-  contentId = "",
+  contentRef,
 }: {
   title?: string;
   titleColor?: string;
   children: ReactNode;
   button?: ReactNode;
-  contentId?: string;
+  contentRef: LegacyRef<HTMLDivElement>;
 }) => (
   <Container>
     {title && (
@@ -21,8 +21,7 @@ const Card = ({
         {button}
       </Title>
     )}
-    <Content id={contentId}>{children}</Content>
+    <Content ref={contentRef}>{children}</Content>
   </Container>
 );
-
 export default Card;

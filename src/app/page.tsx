@@ -69,7 +69,7 @@ const Page = async () => {
     let list = JSON.parse(html).data.list;
     // translate list titles
     for (let item of list) {
-      const title = await translator.translate(item.title);
+      const title: any = await translator.translate(item.title);
       const dateParts = item.time.split(" ")[0].split("-");
       item.title = title.text;
       item.date = `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`;
@@ -82,7 +82,10 @@ const Page = async () => {
     });
   }
   // sort by most recent
-  data.sort((a, b) => new Date(b.list[0].date) - new Date(a.list[0].date));
+  data.sort(
+    (a, b) =>
+      new Date(b.list[0].date).valueOf() - new Date(a.list[0].date).valueOf()
+  );
 
   return (
     <main className="flex flex-col mx-[10%] mt-[2%] mb-[5%] gap-y-5">

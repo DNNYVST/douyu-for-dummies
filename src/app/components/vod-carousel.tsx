@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { Card } from "./core/styled/card";
 import { Button } from "./core/styled/button";
 import ChevronLeft from "./icons/chevron-left";
@@ -14,29 +14,34 @@ export interface Streamer {
   list: any[];
 }
 
-const getScrollAmount = (element: HTMLElement) => element.scrollWidth / 4;
+const getScrollAmount = (element: HTMLDivElement) => element.scrollWidth / 4;
 
 const VODCarousel = ({ name, customColor, id, list }: Streamer) => {
   const [showLeftButton, setShowLeftButton] = useState<boolean>(false);
   const [showRightButton, setShowRightButton] = useState<boolean>(true);
+  const [contentNode, setContentNode] = useState<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const handleScroll = () => {
-      setShowLeftButton(element.scrollLeft > 0);
-      setShowRightButton(
-        element.scrollLeft + element.clientWidth < element.scrollWidth
-      );
-    };
-    element.addEventListener("scroll", handleScroll);
-    return () => element.removeEventListener("scroll", handleScroll);
-  }, [id]);
-
-  const element = document.getElementById(id);
+  const contentRef = useCallback((node: HTMLDivElement) => {
+    if (node !== null) {
+      setContentNode(node);
+      const handleScroll = () => {
+        setShowLeftButton(node.scrollLeft > 0);
+        setShowRightButton(
+          node.scrollLeft + node.clientWidth < node.scrollWidth
+        );
+      };
+      node.addEventListener("scroll", handleScroll);
+      return () => node.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
 
   return (
-    <Card title={name} titleColor={customColor} key={name} contentId={id}>
+    <Card
+      title={name}
+      titleColor={customColor}
+      key={name}
+      contentRef={contentRef}
+    >
       <section className="flex gap-x-5 w-max">
         {list.map((vod: VOD) => (
           <VODThumbnail key={vod.show_id} {...vod} />
@@ -45,7 +50,9 @@ const VODCarousel = ({ name, customColor, id, list }: Streamer) => {
       {showLeftButton && (
         <Button
           className="absolute top-[50%] left-0 !rounded-full !p-2 opacity-90"
-          onClick={() => element?.scrollBy(-getScrollAmount(element), 0)}
+          onClick={() =>
+            contentNode?.scrollBy(-getScrollAmount(contentNode), 0)
+          }
         >
           <ChevronLeft />
         </Button>
@@ -53,7 +60,7 @@ const VODCarousel = ({ name, customColor, id, list }: Streamer) => {
       {showRightButton && (
         <Button
           className="absolute top-[50%] right-0 !rounded-full !p-2 opacity-90"
-          onClick={() => element?.scrollBy(getScrollAmount(element), 0)}
+          onClick={() => contentNode?.scrollBy(getScrollAmount(contentNode), 0)}
         >
           <ChevronRight />
         </Button>
