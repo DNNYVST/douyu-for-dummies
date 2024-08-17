@@ -46,11 +46,12 @@ const VODCarousel = ({ name, customColor, id, roomId, list }: Streamer) => {
     <Card
       title={name}
       button={
-        <span className="flex ml-auto gap-x-4 !text-[#efeff1] opacity-60">
+        <span className="flex ml-auto gap-x-4 !text-[#efeff1]">
           <StyledLink
             href={getLiveReplayUrl(id)}
             target="_blank"
             rel="noopener noreferrer"
+            className="opacity-60 hover:opacity-100"
           >
             VODs
           </StyledLink>
@@ -58,7 +59,7 @@ const VODCarousel = ({ name, customColor, id, roomId, list }: Streamer) => {
             href={getLiveRoomUrl(roomId)}
             target="_blank"
             rel="noopener noreferrer"
-            className="!decoration-[#ED4245]"
+            className="!decoration-[#ED4245] opacity-60 hover:opacity-100"
           >
             Live
           </StyledLink>
