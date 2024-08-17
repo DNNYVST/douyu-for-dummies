@@ -5,7 +5,7 @@ import { disabled, smallFont, fontWeightSemiBold } from "../styles";
 type ButtonVariants = "primary" | "secondary" | "destructive" | undefined;
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
-  variant?: ButtonVariants;
+  $variant?: ButtonVariants;
 }
 
 const VARIANTS = {
@@ -29,7 +29,7 @@ const VARIANTS = {
   `,
 };
 
-const Button = styled.button<{ variant?: ButtonVariants }>`
+const Button = styled.button<{ $variant?: ButtonVariants }>`
   color: #efeff1;
 
   ${smallFont}
@@ -40,11 +40,11 @@ const Button = styled.button<{ variant?: ButtonVariants }>`
 
   ${disabled}
 
-  ${({ variant }) => variant && VARIANTS[variant]}
+  ${({ $variant }) => $variant && VARIANTS[$variant]}
 `;
 
 Button.defaultProps = {
-  variant: "primary",
+  $variant: "primary",
 };
 
 export default Button;

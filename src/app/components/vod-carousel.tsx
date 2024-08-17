@@ -47,7 +47,7 @@ const VODCarousel = ({ name, customColor, id, list }: Streamer) => {
           <VODThumbnail key={vod.show_id} {...vod} />
         ))}
       </section>
-      {showLeftButton && (
+      {showLeftButton && contentNode && (
         <Button
           className="absolute top-[50%] left-0 !rounded-full !p-2 opacity-90"
           onClick={() =>
@@ -57,7 +57,7 @@ const VODCarousel = ({ name, customColor, id, list }: Streamer) => {
           <ChevronLeft />
         </Button>
       )}
-      {showRightButton && (
+      {showRightButton && contentNode && (
         <Button
           className="absolute top-[50%] right-0 !rounded-full !p-2 opacity-90"
           onClick={() => contentNode?.scrollBy(getScrollAmount(contentNode), 0)}

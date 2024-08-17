@@ -57,7 +57,12 @@ const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => (
         {getDateDifference(date)}
       </small>
     </div>
-    <p className={`break-word max-w-[${THUMBNAIL_WIDTH}px] text-sm`}>{title}</p>
+    <p
+      className="break-word text-sm"
+      style={{ maxWidth: `${THUMBNAIL_WIDTH}px` }}
+    >
+      {title}
+    </p>
   </div>
 );
 
