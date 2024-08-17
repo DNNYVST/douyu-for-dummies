@@ -3,7 +3,7 @@ import Discord from "./components/icons/discord";
 const PageHeader = () => (
   <span className="grid grid-cols-3 items-center justify-center">
     <p className="col-start-2 text-center">douyu for dummies</p>
-    <span className="flex flex-col opacity-50 ml-auto">
+    <span className="flex flex-col opacity-40 ml-auto">
       <span className="flex gap-x-2">
         <Discord />
         <small>smiler</small>

@@ -6,11 +6,13 @@ const Card = ({
   titleColor = "",
   children,
   button = null,
+  contentId = "",
 }: {
   title?: string;
   titleColor?: string;
   children: ReactNode;
   button?: ReactNode;
+  contentId?: string;
 }) => (
   <Container>
     {title && (
@@ -19,7 +21,7 @@ const Card = ({
         {button}
       </Title>
     )}
-    <Content>{children}</Content>
+    <Content id={contentId}>{children}</Content>
   </Container>
 );
 

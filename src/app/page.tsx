@@ -1,7 +1,6 @@
 import { Translator } from "google-translate-api-x";
-import VODBrowser from "./vod-browser";
+import VODBrowser, { Streamer } from "./vod-browser";
 import PageHeader from "./page-header";
-import Discord from "./components/icons/discord";
 
 const CLASS_COLORS = {
   "Death Knight": "#C41E3A",
@@ -58,7 +57,7 @@ const translator = new Translator({
 });
 
 const Page = async () => {
-  let data = [];
+  let data: Streamer[] = [];
   for (const stream of STREAMS) {
     console.log("loading data");
     const response = await fetch(
@@ -75,12 +74,15 @@ const Page = async () => {
       item.title = title.text;
       item.date = `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`;
     }
-    data.push({ name: stream.name, customColor: stream.color, list: list });
+    data.push({
+      name: stream.name,
+      id: stream.id,
+      customColor: stream.color,
+      list: list,
+    });
   }
   // sort by most recent
   data.sort((a, b) => new Date(b.list[0].date) - new Date(a.list[0].date));
-
-  console.log("SERVER RENDER");
 
   return (
     <main className="flex flex-col mx-[10%] mt-[2%] mb-[5%] gap-y-5">

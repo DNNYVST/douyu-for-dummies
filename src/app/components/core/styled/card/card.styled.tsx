@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   background: #18181b;
   color: #efeff1;
+  position: relative;
 `;
 
 // ${smallFont}
