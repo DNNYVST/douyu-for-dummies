@@ -58,7 +58,7 @@ const VODCarousel = ({ name, customColor, id, roomId, list }: Streamer) => {
             href={getLiveRoomUrl(roomId)}
             target="_blank"
             rel="noopener noreferrer"
-            className="!decoration-red-500"
+            className="!decoration-[#ED4245]"
           >
             Live
           </StyledLink>
