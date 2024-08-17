@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { Card } from "./core/styled/card";
 import { Button } from "./core/styled/button";
+import { StyledLink } from "../page.styled";
 import ChevronLeft from "./icons/chevron-left";
 import ChevronRight from "./icons/chevron-right";
 import VODThumbnail, { VOD } from "./vod-thumbnail";
@@ -11,12 +12,18 @@ export interface Streamer {
   name: string;
   customColor?: string;
   id: string;
+  roomId: number;
   list: any[];
 }
 
+const getLiveReplayUrl = (authorId: string) =>
+  `https://v.douyu.com/author/${authorId}?type=liveReplay`;
+
+const getLiveRoomUrl = (roomId: number) => `https://douyu.com/${roomId}`;
+
 const getScrollAmount = (element: HTMLDivElement) => element.scrollWidth / 4;
 
-const VODCarousel = ({ name, customColor, id, list }: Streamer) => {
+const VODCarousel = ({ name, customColor, id, roomId, list }: Streamer) => {
   const [showLeftButton, setShowLeftButton] = useState<boolean>(false);
   const [showRightButton, setShowRightButton] = useState<boolean>(true);
   const [contentNode, setContentNode] = useState<HTMLDivElement | null>(null);
@@ -38,6 +45,25 @@ const VODCarousel = ({ name, customColor, id, list }: Streamer) => {
   return (
     <Card
       title={name}
+      button={
+        <span className="flex ml-auto gap-x-4 !text-[#efeff1] opacity-60">
+          <StyledLink
+            href={getLiveReplayUrl(id)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VODs
+          </StyledLink>
+          <StyledLink
+            href={getLiveRoomUrl(roomId)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="!decoration-red-500"
+          >
+            Live
+          </StyledLink>
+        </span>
+      }
       titleColor={customColor}
       key={name}
       contentRef={contentRef}

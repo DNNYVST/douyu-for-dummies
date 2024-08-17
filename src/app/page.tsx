@@ -22,30 +22,36 @@ const STREAMS = [
   {
     name: "Anuo",
     id: "OVAO4QQbm7Qk",
+    roomId: 135213,
     color: CLASS_COLORS["Demon Hunter"],
   },
   {
     name: "Rare",
     id: "8PAbVPy9lZAO",
+    roomId: 5421846,
     color: CLASS_COLORS["Demon Hunter"],
   },
   {
     name: "Semage",
     id: "aBADDZYpnAXm",
+    roomId: 2805008,
     color: CLASS_COLORS["Mage"],
   },
   {
     name: "Xybb",
+    roomId: 11942,
     id: "LlOdEon1b7nR",
   },
   {
     name: "Yeluo",
     id: "aKPA3GEKZAGD",
+    roomId: 62081,
     color: CLASS_COLORS["Rogue"],
   },
   {
     name: "QingXin",
     id: "ky6AZxrBOwKW",
+    roomId: 5905138,
     color: CLASS_COLORS["Mage"],
   },
 ];
@@ -77,6 +83,7 @@ const Page = async () => {
     data.push({
       name: stream.name,
       id: stream.id,
+      roomId: stream.roomId,
       customColor: stream.color,
       list: list,
     });

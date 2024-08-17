@@ -1,8 +1,10 @@
 import VODCarousel from "./components/vod-carousel";
+
 export interface Streamer {
   name: string;
   customColor?: string;
   id: string;
+  roomId: number;
   list: any[];
 }
 
