@@ -12,16 +12,21 @@ export const Container = styled.div`
   color: #efeff1;
 `;
 
-export const Title = styled.p`
+// ${smallFont}
+// ${fontWeightSemiBold}
+export const Title = styled.p<{ $color?: string }>`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
-  ${smallFont}
-  ${fontWeightSemiBold}
 
   button {
     margin-left: auto;
   }
+  ${(props) =>
+    props.$color &&
+    css`
+      color: ${props.$color};
+    `}
 `;
 
 export const Content = styled.div`
