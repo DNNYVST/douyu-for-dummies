@@ -1,16 +1,17 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, Fragment } from "react";
 import { Card } from "./core/styled/card";
 import { Button } from "./core/styled/button";
 import { StyledLink } from "../page.styled";
 import ChevronLeft from "./icons/chevron-left";
 import ChevronRight from "./icons/chevron-right";
 import VODThumbnail, { VOD } from "./vod-thumbnail";
+import VODThumbnailPlaceholder from "./vod-thumbnail-placeholder";
 
 export interface Streamer {
   name: string;
-  customColor?: string;
+  color?: string;
   id: string;
   roomId: number;
   list: any[];
@@ -23,7 +24,7 @@ const getLiveRoomUrl = (roomId: number) => `https://douyu.com/${roomId}`;
 
 const getScrollAmount = (element: HTMLDivElement) => element.scrollWidth / 4;
 
-const VODCarousel = ({ name, customColor, id, roomId, list }: Streamer) => {
+const VODCarousel = ({ name, color, id, roomId, list }: Streamer) => {
   const [showLeftButton, setShowLeftButton] = useState<boolean>(false);
   const [showRightButton, setShowRightButton] = useState<boolean>(true);
   const [contentNode, setContentNode] = useState<HTMLDivElement | null>(null);
@@ -65,13 +66,19 @@ const VODCarousel = ({ name, customColor, id, roomId, list }: Streamer) => {
           </StyledLink>
         </span>
       }
-      titleColor={customColor}
+      titleColor={color}
       key={name}
       contentRef={contentRef}
     >
       <section className="flex gap-x-5 w-max">
         {list.map((vod: VOD) => (
-          <VODThumbnail key={vod.show_id} {...vod} />
+          <Fragment key={vod.show_id}>
+            {vod.isPlaceholder ? (
+              <VODThumbnailPlaceholder />
+            ) : (
+              <VODThumbnail {...vod} />
+            )}
+          </Fragment>
         ))}
       </section>
       {showLeftButton && contentNode && (

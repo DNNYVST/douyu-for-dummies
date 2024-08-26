@@ -18,7 +18,7 @@ const CLASS_COLORS = {
   Warrior: "#C69B6D",
 };
 
-const STREAMS = [
+export const STREAMS = [
   {
     name: "Anuo",
     id: "OVAO4QQbm7Qk",
@@ -81,11 +81,8 @@ const Page = async () => {
       item.date = `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`;
     }
     data.push({
-      name: stream.name,
-      id: stream.id,
-      roomId: stream.roomId,
-      customColor: stream.color,
-      list: list,
+      ...stream,
+      list,
     });
   }
   // sort by most recent

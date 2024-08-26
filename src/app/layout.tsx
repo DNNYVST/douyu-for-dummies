@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import StyledComponentsRegistry from "./lib/registry";
 
 const ibm_plex_mono = IBM_Plex_Mono({ weight: "500", subsets: ["latin"] });
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ibm_plex_mono.className}>{children}</body>
+      <body className={ibm_plex_mono.className}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 }

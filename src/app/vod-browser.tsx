@@ -2,7 +2,7 @@ import VODCarousel from "./components/vod-carousel";
 
 export interface Streamer {
   name: string;
-  customColor?: string;
+  color?: string;
   id: string;
   roomId: number;
   list: any[];

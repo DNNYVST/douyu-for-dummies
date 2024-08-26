@@ -27,6 +27,7 @@ const getDateDifference = (date: string) => {
 };
 
 export interface VOD {
+  isPlaceholder?: boolean;
   show_id: number;
   title: string;
   time: string;
@@ -36,7 +37,7 @@ export interface VOD {
 
 const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => (
   <div>
-    <div className="relative">
+    <div className="relative h-[166px]">
       <a
         href={getVODUrl(video_list[0].hash_id)}
         target="_blank"
