@@ -18,7 +18,7 @@ const CLASS_COLORS = {
   Warrior: "#C69B6D",
 };
 
-export const STREAMS = [
+const STREAMS = [
   {
     name: "Anuo",
     id: "OVAO4QQbm7Qk",
