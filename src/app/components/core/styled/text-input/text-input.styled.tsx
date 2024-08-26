@@ -1,11 +1,9 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import { disabled, smallFont, fontWeightMedium } from "../styles";
 
-export const Container = styled.div<{ ({ props }) }>`
+export const Container = styled.div`
+  color: #efeff1;
   ${smallFont}
-  ${(props) => css`
-    color: ${props.theme.text};
-  `}
 `;
 
 export const Label = styled.label`
