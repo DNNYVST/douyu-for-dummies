@@ -19,7 +19,7 @@ const PageHeader = () => (
           priority
           className="w-[15px] h-[15px]"
         />
-        <small>wind_tempos / fireemoji_</small>
+        <small>wind_tempos fka fireemoji_</small>
       </span>
     </span>
   </span>
