@@ -12,7 +12,7 @@ const Card = ({
   titleColor?: string;
   children: ReactNode;
   button?: ReactNode;
-  contentRef: LegacyRef<HTMLDivElement>;
+  contentRef?: LegacyRef<HTMLDivElement>;
 }) => (
   <Container>
     {title && (

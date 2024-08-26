@@ -1,30 +1,25 @@
 "use client";
 
 import { useState, useCallback, Fragment } from "react";
-import { Card } from "./core/styled/card";
-import { Button } from "./core/styled/button";
-import { StyledLink } from "../page.styled";
-import ChevronLeft from "./icons/chevron-left";
-import ChevronRight from "./icons/chevron-right";
-import VODThumbnail, { VOD } from "./vod-thumbnail";
+import { Streamer, VOD } from "./interfaces";
+import { Card } from "../core/styled/card";
+import ExternalLinksSection from "./external-links-section";
+import { Button } from "../core/styled/button";
+import ChevronLeft from "../icons/chevron-left";
+import ChevronRight from "../icons/chevron-right";
+import VODThumbnail from "./vod-thumbnail";
 import VODThumbnailPlaceholder from "./vod-thumbnail-placeholder";
-
-export interface Streamer {
-  name: string;
-  color?: string;
-  id: string;
-  roomId: number;
-  list: any[];
-}
-
-const getLiveReplayUrl = (authorId: string) =>
-  `https://v.douyu.com/author/${authorId}?type=liveReplay`;
-
-const getLiveRoomUrl = (roomId: number) => `https://douyu.com/${roomId}`;
 
 const getScrollAmount = (element: HTMLDivElement) => element.scrollWidth / 4;
 
-const VODCarousel = ({ name, color, id, roomId, list }: Streamer) => {
+const ScrollableVODSection = ({
+  name,
+  color,
+  id,
+  roomId,
+  list = [],
+  showPlaceholders = false,
+}: Streamer) => {
   const [showLeftButton, setShowLeftButton] = useState<boolean>(false);
   const [showRightButton, setShowRightButton] = useState<boolean>(true);
   const [contentNode, setContentNode] = useState<HTMLDivElement | null>(null);
@@ -46,26 +41,7 @@ const VODCarousel = ({ name, color, id, roomId, list }: Streamer) => {
   return (
     <Card
       title={name}
-      button={
-        <span className="flex ml-auto gap-x-4 !text-[#efeff1]">
-          <StyledLink
-            href={getLiveReplayUrl(id)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="opacity-60 hover:opacity-100"
-          >
-            VODs
-          </StyledLink>
-          <StyledLink
-            href={getLiveRoomUrl(roomId)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="!decoration-[#ED4245] opacity-60 hover:opacity-100"
-          >
-            Live
-          </StyledLink>
-        </span>
-      }
+      button={<ExternalLinksSection authorId={id} roomId={roomId} />}
       titleColor={color}
       key={name}
       contentRef={contentRef}
@@ -73,7 +49,7 @@ const VODCarousel = ({ name, color, id, roomId, list }: Streamer) => {
       <section className="flex gap-x-5 w-max">
         {list.map((vod: VOD) => (
           <Fragment key={vod.show_id}>
-            {vod.isPlaceholder ? (
+            {showPlaceholders ? (
               <VODThumbnailPlaceholder />
             ) : (
               <VODThumbnail {...vod} />
@@ -103,4 +79,4 @@ const VODCarousel = ({ name, color, id, roomId, list }: Streamer) => {
   );
 };
 
-export default VODCarousel;
+export default ScrollableVODSection;

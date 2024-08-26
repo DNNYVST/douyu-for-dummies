@@ -1,3 +1,4 @@
+import { VOD } from "./interfaces";
 import Image from "next/image";
 
 const THUMBNAIL_WIDTH = 295;
@@ -23,17 +24,10 @@ const getDateDifference = (date: string) => {
   let timeDifference = now.getTime() - vodDate.getTime();
   let dayDifference = Math.round(timeDifference / (1000 * 3600 * 24));
 
-  return `${dayDifference} day${dayDifference !== 1 ? "s" : ""} ago`;
+  return dayDifference === 0
+    ? "today"
+    : `${dayDifference} day${dayDifference !== 1 ? "s" : ""} ago`;
 };
-
-export interface VOD {
-  isPlaceholder?: boolean;
-  show_id: number;
-  title: string;
-  time: string;
-  video_list: any;
-  date: string;
-}
 
 const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => (
   <div>
