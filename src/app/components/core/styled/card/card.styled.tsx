@@ -37,4 +37,9 @@ export const Content = styled.div`
   @media (prefers-reduced-motion) {
     scroll-behavior: auto;
   }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-scrollbar {
+    display: none;
+  }
 `;
