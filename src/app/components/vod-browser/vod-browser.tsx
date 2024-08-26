@@ -14,25 +14,23 @@ const getFallbackData = (name: string) =>
       date: `${name}placeholder${index}`,
     }));
 
-const VODBrowser = ({ data }: { data: Streamer[] }) => {
-  return (
-    <>
-      {data.map((streamer: Streamer) => (
-        <Suspense
-          key={streamer.id}
-          fallback={
-            <ScrollableVODSection
-              {...streamer}
-              list={getFallbackData(streamer.name)}
-              showPlaceholders
-            />
-          }
-        >
-          <VODCarousel {...streamer} />
-        </Suspense>
-      ))}
-    </>
-  );
-};
+const VODBrowser = ({ data }: { data: Streamer[] }) => (
+  <>
+    {data.map((streamer: Streamer) => (
+      <Suspense
+        key={streamer.id}
+        fallback={
+          <ScrollableVODSection
+            {...streamer}
+            list={getFallbackData(streamer.name)}
+            showPlaceholders
+          />
+        }
+      >
+        <VODCarousel {...streamer} />
+      </Suspense>
+    ))}
+  </>
+);
 
 export default VODBrowser;

@@ -1,6 +1,6 @@
 import { Streamer } from "./interfaces";
 import { Translator } from "google-translate-api-x";
-import ScrollableThumbnailSection from "./scrollable-vod-section";
+import ScrollableVODSection from "./scrollable-vod-section";
 
 const translator = new Translator({
   from: "zh-CN",
@@ -25,7 +25,7 @@ const VODCarousel = async (streamer: Streamer) => {
     item.date = `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`;
   }
   data = list;
-  return <ScrollableThumbnailSection {...streamer} list={data} />;
+  return <ScrollableVODSection {...streamer} list={data} />;
 };
 
 export default VODCarousel;
