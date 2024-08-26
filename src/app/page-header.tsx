@@ -1,4 +1,5 @@
 import Discord from "./components/icons/discord";
+import Image from "next/image";
 
 const PageHeader = () => (
   <span className="grid grid-cols-3 items-center justify-center">
@@ -10,7 +11,14 @@ const PageHeader = () => (
         <small>smiler</small>
       </span>
       <span className="flex gap-x-2 items-center">
-        <img src="/glitch_flat_purple.png" width="15px" height="15px" />
+        <Image
+          src="/glitch_flat_purple.png"
+          alt="twitch logo"
+          width={15}
+          height={15}
+          priority
+          className="w-[15px] h-[15px]"
+        />
         <small>wind_tempos / fireemoji_</small>
       </span>
     </span>

@@ -26,10 +26,10 @@ const STREAMS = [
     color: CLASS_COLORS["Demon Hunter"],
   },
   {
-    name: "Rare",
-    id: "8PAbVPy9lZAO",
-    roomId: 5421846,
-    color: CLASS_COLORS["Demon Hunter"],
+    name: "Yeluo",
+    id: "aKPA3GEKZAGD",
+    roomId: 62081,
+    color: CLASS_COLORS["Rogue"],
   },
   {
     name: "Semage",
@@ -43,10 +43,10 @@ const STREAMS = [
     id: "LlOdEon1b7nR",
   },
   {
-    name: "Yeluo",
-    id: "aKPA3GEKZAGD",
-    roomId: 62081,
-    color: CLASS_COLORS["Rogue"],
+    name: "Rare",
+    id: "8PAbVPy9lZAO",
+    roomId: 5421846,
+    color: CLASS_COLORS["Demon Hunter"],
   },
   {
     name: "QingXin",
