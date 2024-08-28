@@ -66,6 +66,9 @@ const Page = () => {
   return (
     <main className="flex flex-col mx-[10%] mt-[2%] mb-[5%] gap-y-5">
       <PageHeader />
+      <small className="opacity-40 italic">
+        coming soon: add your own streamers, theming, mobile layout
+      </small>
       <VODBrowser data={STREAMS} />
     </main>
   );
