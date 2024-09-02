@@ -1,4 +1,6 @@
-A Douyu VOD browser to more easily track CN WoW streamers
+www.douyufordummies.com
+
+A Douyu VOD browser to more easily track CN WoW streamers.
 
 There are many amazing CN WoW players who stream on sites like Douyu, Huya and Bilibili. It can be hard to find their streams / VODs for us Western folk, as even Google Translate doesn't make it obvious and you just kind of have to know what/who you are looking for.
 
