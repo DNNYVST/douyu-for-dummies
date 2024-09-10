@@ -30,7 +30,7 @@ const getDateDifference = (date: string) => {
 };
 
 const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => (
-  <div className="select-none">
+  <div className="select-none snap-end">
     <div className="relative h-[166px]">
       <a
         href={getVODUrl(video_list[0].hash_id)}

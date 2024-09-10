@@ -33,6 +33,7 @@ export const Title = styled.p<{ $color?: string }>`
 export const Content = styled.div`
   overflow-x: scroll;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 
   @media (prefers-reduced-motion) {
     scroll-behavior: auto;
