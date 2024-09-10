@@ -4,7 +4,7 @@ import VODCarousel from "./vod-carousel";
 import ScrollableVODSection from "./scrollable-vod-section";
 
 const getFallbackData = (name: string) =>
-  Array(4)
+  Array(7)
     .fill(0)
     .map((_, index) => ({
       show_id: index,
