@@ -30,7 +30,7 @@ const getDateDifference = (date: string) => {
 };
 
 const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => (
-  <div>
+  <div className="select-none">
     <div className="relative h-[166px]">
       <a
         href={getVODUrl(video_list[0].hash_id)}
@@ -42,13 +42,13 @@ const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => (
           src={video_list[0].video_pic}
           width={THUMBNAIL_WIDTH}
           height={THUMBNAIL_WIDTH * (9 / 16)}
-          className="rounded-md hover:border-2 hover:border-[#9147ff] shadow-lg"
+          className="rounded-md border-2 border-[#00000000] hover:border-[#9147ff] shadow-lg"
         />
       </a>
-      <small className="absolute top-0 left-0 m-4 bg-black bg-opacity-60 px-[0.4rem] rounded-sm">
+      <small className="absolute top-0 left-0 m-4 bg-black bg-opacity-60 px-[0.4rem] rounded-sm pointer-events-none">
         {getFormattedVideoDurationString(video_list[0].video_str_duration)}
       </small>
-      <small className="absolute bottom-0 right-0 m-4 bg-black bg-opacity-60 px-[0.4rem] rounded-sm">
+      <small className="absolute bottom-0 right-0 m-4 bg-black bg-opacity-60 px-[0.4rem] rounded-sm pointer-events-none">
         {getDateDifference(date)}
       </small>
     </div>
