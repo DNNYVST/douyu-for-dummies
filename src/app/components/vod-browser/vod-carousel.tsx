@@ -13,7 +13,8 @@ const VODCarousel = async (streamer: Streamer) => {
   const response = await fetch(
     `https://v.douyu.com/wgapi/vod/center/authorShowVideoList?${1}=1&limit=${10}&up_id=${
       streamer.id
-    }`
+    }`,
+    { cache: "no-store" }
   );
   const html = await response.text();
   let list = JSON.parse(html).data.list;
