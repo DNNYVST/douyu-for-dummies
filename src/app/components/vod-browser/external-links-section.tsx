@@ -17,7 +17,7 @@ const ExternalLinksSection = ({
       href={getLiveReplayUrl(authorId)}
       target="_blank"
       rel="noopener noreferrer"
-      className="opacity-60 hover:opacity-100"
+      className="opacity-80 hover:opacity-100"
     >
       VODs
     </StyledLink>
@@ -25,7 +25,7 @@ const ExternalLinksSection = ({
       href={getLiveRoomUrl(roomId)}
       target="_blank"
       rel="noopener noreferrer"
-      className="!decoration-[#ED4245] opacity-60 hover:opacity-100"
+      className="!decoration-[#ED4245] opacity-80 hover:opacity-100"
     >
       Live
     </StyledLink>
