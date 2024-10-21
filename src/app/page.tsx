@@ -1,4 +1,3 @@
-import { Translator } from "google-translate-api-x";
 import VODBrowser from "./components/vod-browser/vod-browser";
 import PageHeader from "./page-header";
 
@@ -55,12 +54,6 @@ const STREAMS = [
     color: CLASS_COLORS["Mage"],
   },
 ];
-
-const translator = new Translator({
-  from: "zh-CN",
-  to: "en",
-  forceBatch: false,
-});
 
 const Page = () => {
   return (

@@ -20,9 +20,9 @@ const VODCarousel = async (streamer: Streamer) => {
   let list = JSON.parse(html).data.list;
   // translate list titles
   for (let item of list) {
-    const title: any = await translator.translate(item.title);
+    //const title: any = await translator.translate(item.title);
     const dateParts = item.time.split(" ")[0].split("-");
-    item.title = title.text;
+    //item.title = title.text;
     item.date = `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`;
   }
   data = list;

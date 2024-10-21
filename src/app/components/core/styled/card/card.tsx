@@ -1,5 +1,16 @@
+"use client";
+
 import { ReactNode, LegacyRef } from "react";
-import { Container, Title, Content } from "./card.styled";
+import { useTheme } from "../../../../theme-provider";
+
+//   @media (prefers-reduced-motion) {
+//     scroll-behavior: auto;
+//   }
+//   -ms-overflow-style: none;
+//   scrollbar-width: none;
+//   -webkit-scrollbar {
+//     display: none;
+//   }
 
 const Card = ({
   title = "",
@@ -13,15 +24,27 @@ const Card = ({
   children: ReactNode;
   button?: ReactNode;
   contentRef?: LegacyRef<HTMLDivElement>;
-}) => (
-  <Container>
-    {title && (
-      <Title $color={titleColor}>
-        {title}
-        {button}
-      </Title>
-    )}
-    <Content ref={contentRef}>{children}</Content>
-  </Container>
-);
+}) => {
+  const {
+    colorScheme: { background, color },
+  } = useTheme();
+  return (
+    <div
+      className={`rounded-md p-4 h-[100%] shadow-lg ${background} ${color} relative`}
+    >
+      {title && (
+        <p className="flex items-center mb-2" style={{ color: titleColor }}>
+          {title}
+          {button}
+        </p>
+      )}
+      <div
+        className="overflow-x-scroll scroll-smooth snap-x snap-mandatory"
+        ref={contentRef}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
 export default Card;
