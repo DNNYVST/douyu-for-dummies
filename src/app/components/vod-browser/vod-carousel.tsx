@@ -18,6 +18,11 @@ const VODCarousel = async (streamer: Streamer) => {
   );
   const html = await response.text();
   let list = JSON.parse(html).data.list;
+  // for some reason we can get duplicate shows so filter unique
+  list = list.filter(
+    (show: any, index: number, self: any) =>
+      self.findIndex((item: any) => item.show_id === show.show_id) === index
+  );
   // translate list titles
   for (let item of list) {
     //const title: any = await translator.translate(item.title);
