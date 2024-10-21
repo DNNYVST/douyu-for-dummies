@@ -18,13 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <ThemeProvider>
       <body className={ibm_plex_mono.className}>
-        <ThemeProvider>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </ThemeProvider>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         <Analytics />
       </body>
-    </html>
+    </ThemeProvider>
   );
 }

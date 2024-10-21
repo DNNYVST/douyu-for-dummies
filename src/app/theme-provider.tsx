@@ -3,18 +3,21 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
 type Theme = {
+  rootBackground: string;
   background: string;
   color: string;
 };
 
 const DARK_THEME: Theme = {
+  rootBackground: "bg-[#0E0E10]",
   background: "bg-[#18181b]",
-  color: "color-[#efeff1]",
+  color: "text-[#efeff1]",
 };
 
 const LIGHT_THEME: Theme = {
-  background: "bg-[#d9d9d9]",
-  color: "color-[#18181b]",
+  rootBackground: "bg-[#F2F2F2]",
+  background: "bg-white",
+  color: "text-[#18181b]",
 };
 
 const THEMES: any = {
@@ -44,7 +47,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         toggleTheme,
       }}
     >
-      {children}
+      <html
+        lang="en"
+        className={`${THEMES[theme].rootBackground} ${THEMES[theme].color}`}
+      >
+        {children}
+      </html>
     </ThemeContext.Provider>
   );
 };
