@@ -30,7 +30,7 @@ const Card = ({
   } = useTheme();
   return (
     <div
-      className={`rounded-md p-4 h-[100%] shadow-lg ${background} ${color} relative`}
+      className={`rounded-md p-4 h-[100%] shadow-lg ${background} ${color} relative transition-colors ease-in-out duration-200`}
     >
       {title && (
         <p className="flex items-center mb-2" style={{ color: titleColor }}>

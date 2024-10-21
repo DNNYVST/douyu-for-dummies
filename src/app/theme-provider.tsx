@@ -49,7 +49,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     >
       <html
         lang="en"
-        className={`${THEMES[theme].rootBackground} ${THEMES[theme].color}`}
+        className={`${THEMES[theme].rootBackground} ${THEMES[theme].color} transition-colors ease-in-out duration-200`}
       >
         {children}
       </html>
