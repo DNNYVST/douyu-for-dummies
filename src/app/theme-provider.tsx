@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
+import { setThemeCookie } from "./lib/cookies";
 
 type Theme = {
   rootBackground: string;
@@ -26,14 +33,14 @@ const THEMES: any = {
 };
 
 const getDefaultTheme = () => {
-  if (typeof window !== 'undefined' && localStorage.theme) {
-    return localStorage.theme;
-  }
-  if (window?.matchMedia?.("(prefers-color-scheme:dark)")?.matches) {
-    return "dark";
-  }
-  if (window?.matchMedia?.("(prefers-color-scheme:light)")?.matches) {
-    return "light";
+  if (typeof window !== "undefined") {
+    if (window?.matchMedia?.("(prefers-color-scheme:dark)")?.matches) {
+      console.log("prefers dark");
+      return "dark";
+    }
+    if (window?.matchMedia?.("(prefers-color-scheme:light)")?.matches) {
+      return "light";
+    }
   }
   return "dark";
 };
@@ -44,15 +51,26 @@ export const ThemeContext = createContext({
   toggleTheme: () => {},
 });
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState(getDefaultTheme());
+export const ThemeProvider = ({
+  children,
+  initialTheme,
+}: {
+  children: ReactNode;
+  initialTheme: string | undefined;
+}) => {
+  const [theme, setTheme] = useState(initialTheme || "dark");
+
+  useEffect(() => {
+    if (!initialTheme) {
+      setTheme(getDefaultTheme());
+      setThemeCookie(getDefaultTheme());
+    }
+  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    if (typeof window !== 'undefined') {
-      localStorage.theme = newTheme;
-    }
+    setThemeCookie(newTheme);
   };
 
   return (

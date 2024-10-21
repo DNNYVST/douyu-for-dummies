@@ -4,6 +4,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "./lib/registry";
 import { ThemeProvider } from "./theme-provider";
+import { cookies } from "next/headers";
 
 const ibm_plex_mono = IBM_Plex_Mono({ weight: "500", subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider>
+    <ThemeProvider initialTheme={cookies().get("theme")?.value}>
       <body className={ibm_plex_mono.className}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         <Analytics />
