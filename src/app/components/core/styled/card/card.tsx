@@ -39,7 +39,7 @@ const Card = ({
         </p>
       )}
       <div
-        className="overflow-x-scroll scroll-smooth snap-x snap-mandatory"
+        className="overflow-x-scroll motion-safe:scroll-smooth snap-x snap-mandatory"
         ref={contentRef}
       >
         {children}
