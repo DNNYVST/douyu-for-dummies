@@ -26,7 +26,7 @@ const THEMES: any = {
 };
 
 const getDefaultTheme = () => {
-  if (localStorage.theme) {
+  if (typeof window !== 'undefined' && localStorage.theme) {
     return localStorage.theme;
   }
   if (window?.matchMedia?.("(prefers-color-scheme:dark)")?.matches) {
@@ -50,7 +50,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    localStorage.theme = newTheme;
+    if (typeof window !== 'undefined') {
+      localStorage.theme = newTheme;
+    }
   };
 
   return (
