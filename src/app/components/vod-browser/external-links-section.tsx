@@ -16,7 +16,7 @@ const ExternalLinksSection = ({
   roomId: number;
 }) => {
   const {
-    colorScheme: { color },
+    colorScheme: { textColor },
   } = useTheme();
   return (
     <span className="flex ml-auto gap-x-4">
@@ -24,7 +24,7 @@ const ExternalLinksSection = ({
         href={getLiveReplayUrl(authorId)}
         target="_blank"
         rel="noopener noreferrer"
-        className={`opacity-80 hover:opacity-100 ${color}`}
+        className={`opacity-80 hover:opacity-100 ${textColor}`}
       >
         VODs
       </StyledLink>
@@ -32,7 +32,7 @@ const ExternalLinksSection = ({
         href={getLiveRoomUrl(roomId)}
         target="_blank"
         rel="noopener noreferrer"
-        className={`!decoration-[#ED4245] opacity-80 hover:opacity-100 ${color}`}
+        className={`!decoration-[#ED4245] opacity-80 hover:opacity-100 ${textColor}`}
       >
         Live
       </StyledLink>

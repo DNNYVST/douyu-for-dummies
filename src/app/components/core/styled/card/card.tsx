@@ -26,11 +26,11 @@ const Card = ({
   contentRef?: LegacyRef<HTMLDivElement>;
 }) => {
   const {
-    colorScheme: { background, color },
+    colorScheme: { background, textColor },
   } = useTheme();
   return (
     <div
-      className={`rounded-md p-4 h-[100%] shadow-lg ${background} ${color} relative transition-colors ease-in-out duration-200`}
+      className={`rounded-md p-4 h-[100%] shadow-lg ${background} ${textColor} relative transition-colors ease-in-out duration-200`}
     >
       {title && (
         <p className="flex items-center mb-2" style={{ color: titleColor }}>

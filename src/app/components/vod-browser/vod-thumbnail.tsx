@@ -34,7 +34,7 @@ const getDateDifference = (date: string) => {
 
 const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => {
   const {
-    colorScheme: { color },
+    colorScheme: { textColor },
   } = useTheme();
   return (
     <div className="select-none snap-end">
@@ -60,7 +60,7 @@ const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => {
         </small>
       </div>
       <p
-        className={`break-word text-sm ${color}`}
+        className={`break-word text-sm ${textColor}`}
         style={{ maxWidth: `${THUMBNAIL_WIDTH}px` }}
       >
         {title}

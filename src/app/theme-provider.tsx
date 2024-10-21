@@ -5,19 +5,19 @@ import { createContext, ReactNode, useContext, useState } from "react";
 type Theme = {
   rootBackground: string;
   background: string;
-  color: string;
+  textColor: string;
 };
 
 const DARK_THEME: Theme = {
   rootBackground: "bg-[#0E0E10]",
   background: "bg-[#18181b]",
-  color: "text-[#efeff1]",
+  textColor: "text-[#efeff1]",
 };
 
 const LIGHT_THEME: Theme = {
   rootBackground: "bg-[#F2F2F2]",
   background: "bg-white",
-  color: "text-[#18181b]",
+  textColor: "text-[#18181b]",
 };
 
 const THEMES: any = {
@@ -63,7 +63,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     >
       <html
         lang="en"
-        className={`${THEMES[theme].rootBackground} ${THEMES[theme].color} transition-colors ease-in-out duration-200`}
+        className={`${THEMES[theme].rootBackground} ${THEMES[theme].textColor} transition-colors ease-in-out duration-200`}
       >
         {children}
       </html>

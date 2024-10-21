@@ -9,10 +9,10 @@ const ThemeToggle = () => {
   const {
     theme,
     toggleTheme,
-    colorScheme: { color },
+    colorScheme: { textColor },
   } = useTheme();
   return (
-    <Button $variant="icon" className={`w-min ${color}`} onClick={toggleTheme}>
+    <Button $variant="icon" className={`w-min ${textColor}`} onClick={toggleTheme}>
       {theme === "dark" ? <Moon /> : <Sun />}
     </Button>
   );
