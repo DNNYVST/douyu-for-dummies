@@ -49,7 +49,7 @@ const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => {
             src={video_list[0].video_pic}
             width={THUMBNAIL_WIDTH}
             height={THUMBNAIL_WIDTH * (9 / 16)}
-            className="rounded-md border-2 border-[#00000000] hover:border-[#9147ff] shadow-lg"
+            className="rounded-md border-2 border-[#00000000] hover:border-[#9147ff]"
           />
         </a>
         <small className="absolute top-0 left-0 m-4 bg-black bg-opacity-60 px-[0.4rem] rounded-sm pointer-events-none !text-[#efeff1]">
