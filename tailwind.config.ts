@@ -20,7 +20,7 @@ const config: Config = {
   plugins: [
     plugin(({ addUtilities }) =>
       addUtilities({
-        "hide-scrollbar": {
+        ".hide-scrollbar": {
           /* IE, Edge*/
           "-ms-overflow-style": "none",
           /* Firefox */
