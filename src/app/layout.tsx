@@ -18,12 +18,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialTheme = cookies().get("theme")?.value;
   return (
-    <ThemeProvider initialTheme={cookies().get("theme")?.value}>
-      <body className={ibm_plex_mono.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        <Analytics />
+    <html lang="en">
+      <body
+        className={`${ibm_plex_mono.className} ${
+          initialTheme === "dark" ? "bg-[#0E0E10]" : "bg-[#F2F2F2]"
+        }`}
+      >
+        <ThemeProvider initialTheme={initialTheme}>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <Analytics />
+        </ThemeProvider>
       </body>
-    </ThemeProvider>
+    </html>
   );
 }

@@ -6,6 +6,7 @@ import {
   useContext,
   useState,
   useEffect,
+  Fragment,
 } from "react";
 import { setThemeCookie } from "./lib/cookies";
 
@@ -35,7 +36,6 @@ const THEMES: any = {
 const getDefaultTheme = () => {
   if (typeof window !== "undefined") {
     if (window?.matchMedia?.("(prefers-color-scheme:dark)")?.matches) {
-      console.log("prefers dark");
       return "dark";
     }
     if (window?.matchMedia?.("(prefers-color-scheme:light)")?.matches) {
@@ -81,12 +81,11 @@ export const ThemeProvider = ({
         toggleTheme,
       }}
     >
-      <html
-        lang="en"
+      <div
         className={`${THEMES[theme].rootBackground} ${THEMES[theme].textColor} transition-colors ease-in-out duration-200`}
       >
         {children}
-      </html>
+      </div>
     </ThemeContext.Provider>
   );
 };
