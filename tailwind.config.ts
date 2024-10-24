@@ -1,7 +1,8 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
-  darkMode: 'selector',
+  darkMode: "selector",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,6 +17,21 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) =>
+      addUtilities({
+        "hide-scrollbar": {
+          /* IE, Edge*/
+          "-ms-overflow-style": "none",
+          /* Firefox */
+          "scrollbar-width": "none",
+          /* Chrome, Safari, Opera */
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      })
+    ),
+  ],
 };
 export default config;

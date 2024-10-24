@@ -3,15 +3,6 @@
 import { ReactNode, LegacyRef } from "react";
 import { useTheme } from "../../../../theme-provider";
 
-//   @media (prefers-reduced-motion) {
-//     scroll-behavior: auto;
-//   }
-//   -ms-overflow-style: none;
-//   scrollbar-width: none;
-//   -webkit-scrollbar {
-//     display: none;
-//   }
-
 const Card = ({
   title = "",
   titleColor = "",
@@ -39,7 +30,7 @@ const Card = ({
         </p>
       )}
       <div
-        className="overflow-x-scroll motion-safe:scroll-smooth snap-x snap-mandatory"
+        className="overflow-x-scroll motion-safe:scroll-smooth snap-x snap-mandatory hide-scrollbar"
         ref={contentRef}
       >
         {children}
