@@ -2,7 +2,7 @@
 
 import { useState, useCallback, Fragment } from "react";
 import { Streamer, VOD } from "./interfaces";
-import { Card } from "../core/styled/card";
+import { Card } from "../core/card";
 import ExternalLinksSection from "./external-links-section";
 import { Button } from "../core/button";
 import ChevronLeft from "../icons/chevron-left";
