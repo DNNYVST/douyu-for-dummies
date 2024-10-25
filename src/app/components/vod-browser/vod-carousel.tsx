@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import { Streamer } from "./interfaces";
 import { Translator } from "google-translate-api-x";
 import ScrollableVODSection from "./scrollable-vod-section";
@@ -8,12 +10,9 @@ const translator = new Translator({
   forceBatch: false,
 });
 
-const VODCarousel = async (streamer: Streamer) => {
-  let data: any = [];
+const fetchData = async (streamerId: string) => {
   const response = await fetch(
-    `https://v.douyu.com/wgapi/vod/center/authorShowVideoList?${1}=1&limit=${10}&up_id=${
-      streamer.id
-    }`,
+    `https://v.douyu.com/wgapi/vod/center/authorShowVideoList?${1}=1&limit=${10}&up_id=${streamerId}`,
     { cache: "no-store" }
   );
   const html = await response.text();
@@ -30,7 +29,11 @@ const VODCarousel = async (streamer: Streamer) => {
     item.title = title.text;
     item.date = `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`;
   }
-  data = list;
+  return list;
+};
+
+const VODCarousel = async (streamer: Streamer) => {
+  let data: any = await useMemo(() => fetchData(streamer.id), [streamer.id]);
   return <ScrollableVODSection {...streamer} list={data} />;
 };
 

@@ -2,7 +2,6 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import StyledComponentsRegistry from "./lib/registry";
 import { cookies } from "next/headers";
 
 const ibm_plex_mono = IBM_Plex_Mono({ weight: "500", subsets: ["latin"] });
@@ -23,7 +22,7 @@ export default function RootLayout({
       <body
         className={`${ibm_plex_mono.className} bg-background-primary ${initialTheme}`}
       >
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        {children}
         <Analytics />
       </body>
     </html>

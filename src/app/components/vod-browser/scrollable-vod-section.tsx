@@ -44,7 +44,7 @@ const ScrollableVODSection = ({
       button={<ExternalLinksSection authorId={id} roomId={roomId} />}
       titleColor={color}
       key={name}
-      contentRef={contentRef}
+      ref={contentRef}
     >
       <section className="flex gap-x-5 w-max">
         {list.map((vod: VOD) => (

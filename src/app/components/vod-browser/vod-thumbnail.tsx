@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { VOD } from "./interfaces";
 import Image from "next/image";
 
@@ -31,7 +32,7 @@ const getDateDifference = (date: string) => {
     : `${dayDifference} day${dayDifference !== 1 ? "s" : ""} ago`;
 };
 
-const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => {
+const VODThumbnail = memo(({ show_id, title, date, video_list }: VOD) => {
   return (
     <div className="select-none snap-end">
       <div className="relative h-[166px]">
@@ -63,6 +64,6 @@ const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => {
       </p>
     </div>
   );
-};
+});
 
 export default VODThumbnail;
