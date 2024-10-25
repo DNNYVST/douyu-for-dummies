@@ -66,4 +66,6 @@ const VODThumbnail = memo(({ show_id, title, date, video_list }: VOD) => {
   );
 });
 
+VODThumbnail.displayName = "VODThumbnail";
+
 export default VODThumbnail;
