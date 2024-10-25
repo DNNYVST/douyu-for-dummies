@@ -21,23 +21,25 @@ body {
 
 body {
   @apply transition-colors ease-in-out duration-200;
-  --color-background-primary: 0 0% 95%;
-  --color-background-secondary: 0 0% 100%;
+  --color-background-primary: 0 0% 100%;
+  --color-background-secondary: 0 0% 95%;
+  
+  --color-text-primary: 240 6% 10%;
 
   --color-button-primary: 264 100% 64%;
   --color-button-destructive: 1 100% 65%;
 
-  --color-text-primary: 240 6% 10%;
 }
 
 body.dark {
   --color-background-primary: 240 7% 6%;
   --color-background-secondary: 240 6% 10%;
 
+  --color-text-primary: var(--color-text-base);
+
   --color-button-primary: 264 100% 64%;
   --color-button-destructive: 1 100% 65%;
 
-  --color-text-primary: var(--color-text-base);
 }
 
 body * {

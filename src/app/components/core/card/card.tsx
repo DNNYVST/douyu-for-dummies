@@ -16,7 +16,7 @@ const Card = ({
   contentRef?: LegacyRef<HTMLDivElement>;
 }) => {
   return (
-    <div className="rounded-md p-4 h-[100%] shadow-lg bg-background-secondary text-text-primary relative">
+    <div className="rounded-md p-4 h-[100%] shadow-md bg-background-primary border border-text-primary/40 text-text-primary relative">
       {title && (
         <p className="flex items-center mb-2" style={{ color: titleColor }}>
           {title}
