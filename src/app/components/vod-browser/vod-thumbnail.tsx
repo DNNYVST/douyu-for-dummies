@@ -2,7 +2,6 @@
 
 import { VOD } from "./interfaces";
 import Image from "next/image";
-import { useTheme } from "../../theme-provider";
 
 const THUMBNAIL_WIDTH = 295;
 
@@ -33,9 +32,6 @@ const getDateDifference = (date: string) => {
 };
 
 const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => {
-  const {
-    colorScheme: { textColor },
-  } = useTheme();
   return (
     <div className="select-none snap-end">
       <div className="relative h-[166px]">
@@ -60,7 +56,7 @@ const VODThumbnail = ({ show_id, title, date, video_list }: VOD) => {
         </small>
       </div>
       <p
-        className={`break-word text-sm ${textColor}`}
+        className="break-word text-sm text-text-primary"
         style={{ maxWidth: `${THUMBNAIL_WIDTH}px` }}
       >
         {title}

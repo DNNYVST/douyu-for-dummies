@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "./lib/registry";
-import { ThemeProvider } from "./theme-provider";
 import { cookies } from "next/headers";
 
 const ibm_plex_mono = IBM_Plex_Mono({ weight: "500", subsets: ["latin"] });
@@ -18,18 +17,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialTheme = cookies().get("theme")?.value;
+  const initialTheme = cookies().get("theme")?.value || "dark";
   return (
     <html lang="en">
       <body
-        className={`${ibm_plex_mono.className} ${
-          initialTheme === "dark" ? "bg-[#0E0E10]" : "bg-[#F2F2F2]"
-        }`}
+        className={`${ibm_plex_mono.className} bg-background-primary ${initialTheme}`}
       >
-        <ThemeProvider initialTheme={initialTheme}>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-          <Analytics />
-        </ThemeProvider>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <Analytics />
       </body>
     </html>
   );

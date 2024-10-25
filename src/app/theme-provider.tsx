@@ -70,7 +70,10 @@ export const ThemeProvider = ({
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    setThemeCookie(newTheme);
+    // setThemeCookie(newTheme);
+    // console.log(document.querySelector("body"));
+    // document?.querySelector("body")?.classList.add("dark");
+
   };
 
   return (

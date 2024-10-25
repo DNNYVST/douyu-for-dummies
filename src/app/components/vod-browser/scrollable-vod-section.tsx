@@ -4,7 +4,7 @@ import { useState, useCallback, Fragment } from "react";
 import { Streamer, VOD } from "./interfaces";
 import { Card } from "../core/styled/card";
 import ExternalLinksSection from "./external-links-section";
-import { Button } from "../core/styled/button";
+import { Button } from "../core/button";
 import ChevronLeft from "../icons/chevron-left";
 import ChevronRight from "../icons/chevron-right";
 import VODThumbnail from "./vod-thumbnail";

@@ -10,10 +10,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        "text-base": "hsl(var(--color-text-base))",
+        "background-primary": "hsl(var(--color-background-primary))",
+        "background-secondary": "hsl(var(--color-background-secondary))",
+        "text-primary": "hsl(var(--color-text-primary))",
+        "button-primary": "hsl(var(--color-button-primary))",
+        "button-destructive": "hsl(var(--color-button-destructive))",
       },
     },
   },
