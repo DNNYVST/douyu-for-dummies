@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { cookies } from "next/headers";
+import { ThemeProvider } from "next-themes";
 
 const ibm_plex_mono = IBM_Plex_Mono({ weight: "500", subsets: ["latin"] });
 
@@ -16,14 +16,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialTheme = cookies().get("theme")?.value || "dark";
   return (
-    <html lang="en">
-      <body
-        className={`${ibm_plex_mono.className} bg-background-primary ${initialTheme}`}
-      >
-        {children}
-        <Analytics />
+    <html lang="en" suppressHydrationWarning>
+      <body className={ibm_plex_mono.className}>
+        <ThemeProvider attribute="class">
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

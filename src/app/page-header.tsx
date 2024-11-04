@@ -1,11 +1,10 @@
 import Discord from "./components/icons/discord";
 import Image from "next/image";
 import ThemeToggle from "./components/theme-toggle";
-import { cookies } from "next/headers";
 
 const PageHeader = () => (
   <span className="grid grid-cols-3 items-center justify-center text-text-primary">
-    <ThemeToggle initialTheme={cookies().get("theme")?.value} />
+    <ThemeToggle />
     <p className="col-start-2 text-center text-text-primary">
       douyu for dummies
     </p>

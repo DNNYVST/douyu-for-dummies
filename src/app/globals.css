@@ -2,48 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-text-base: 240 7% 94%;
-}
-
-/*
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 14, 14, 16;
+    --color-text-base: 240 7% 94%;
+
+    --color-background-primary: 0 0% 100%;
+    --color-background-secondary: 0 0% 95%;
+
+    --color-text-primary: 240 6% 10%;
+
+    --color-button-primary: 264 100% 64%;
+    --color-button-destructive: 1 100% 65%;
   }
-}
+  .dark {
+    --color-background-primary: 240 7% 6%;
+    --color-background-secondary: 240 6% 10%;
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-} */
+    --color-text-primary: var(--color-text-base);
 
-body {
-  @apply transition-colors ease-in-out duration-200;
-  --color-background-primary: 0 0% 100%;
-  --color-background-secondary: 0 0% 95%;
-  
-  --color-text-primary: 240 6% 10%;
-
-  --color-button-primary: 264 100% 64%;
-  --color-button-destructive: 1 100% 65%;
-
-}
-
-body.dark {
-  --color-background-primary: 240 7% 6%;
-  --color-background-secondary: 240 6% 10%;
-
-  --color-text-primary: var(--color-text-base);
-
-  --color-button-primary: 264 100% 64%;
-  --color-button-destructive: 1 100% 65%;
-
-}
-
-body * {
-  @apply transition-colors ease-in-out duration-200;
+    --color-button-primary: 264 100% 64%;
+    --color-button-destructive: 1 100% 65%;
+  }
+  /* * {
+    @apply transition-colors ease-in-out duration-200;
+  } */
 }
 
 @layer utilities {
